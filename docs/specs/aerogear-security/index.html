@@ -11,6 +11,8 @@
         targetPage = targetPage.substring(1);
     if (targetPage.indexOf(":") != -1 || (targetPage != "" && !validURL(targetPage)))
         targetPage = "undefined";
+    if (targetPage != "" && !validURL(targetPage))
+        targetPage = "undefined";
     function validURL(url) {
         var pos = url.indexOf(".html");
         if (pos == -1 || pos != url.length - 5)

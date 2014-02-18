@@ -25,6 +25,7 @@ Flexible JSON Payload (link:http://aerogear.org/docs/specs/aerogear-push-message
     "alert":"HELLO!",
     "sound":"default",
     "badge":7,
+    "content-available" : true,
     "someKey":"some value",
     "anotherCustomKey":"some other value"
   },

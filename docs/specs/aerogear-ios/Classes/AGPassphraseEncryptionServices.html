@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>AGPipeConfiguration Class Reference</title>
+		<title>AGPassphraseEncryptionServices Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">AGPipeConfiguration Class Reference</h1>
+				<h1 class="hideInXcode">AGPassphraseEncryptionServices Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -43,7 +43,7 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/endpoint">&nbsp;&nbsp;&nbsp;&nbsp;- endpoint</option>
+	<option value="//api/name/initWithConfig:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithConfig:</option>
 	
 	
 	
@@ -73,7 +73,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/endpoint">endpoint</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithConfig:">initWithConfig:</a></span></li>
 	
 </ul></li>
 
@@ -82,7 +82,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="AGPipeConfiguration Class Reference" name="top"></a>
+				<a title="AGPassphraseEncryptionServices Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -91,7 +91,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">AGPipeConfiguration Class Reference</h1>
+						<h1 class="title title-header">AGPassphraseEncryptionServices Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -99,13 +99,10 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<td class="specification-title">Inherits from</td>
-	<td class="specification-value">NSObject</td>
-</tr><tr>
-	<td class="specification-title">Conforms to</td>
-	<td class="specification-value"><a href="../Protocols/AGPipeConfig.html">AGPipeConfig</a></td>
+	<td class="specification-value"><a href="../Classes/AGBaseEncryptionService.html">AGBaseEncryptionService</a> : NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">AGPipeConfiguration.h<br />AGPipeConfiguration.m</td>
+	<td class="specification-value">AGPassphraseEncryptionServices.h<br />AGPassphraseEncryptionServices.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -115,7 +112,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The internal implementation of the <a href="../Protocols/AGPipeConfig.html">AGPipeConfig</a> to configure <a href="../Protocols/AGPipe.html">AGPipe</a> objects.</p>
+						<p>An <a href="../Protocols/AGEncryptionService.html">AGEncryptionService</a> that generates crypto params randomly by using AGPBKDF2</p>
 					</div>
 					
 					
@@ -133,7 +130,7 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/endpoint">&ndash;&nbsp;endpoint</a></code>
+		<code><a href="#//api/name/initWithConfig:">&ndash;&nbsp;initWithConfig:</a></code>
 	</span>
 	
 	
@@ -155,23 +152,37 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/endpoint" title="endpoint"></a>
-	<h3 class="subsubtitle method-title">endpoint</h3>
+	<a name="//api/name/initWithConfig:" title="initWithConfig:"></a>
+	<h3 class="subsubtitle method-title">initWithConfig:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The endpoint to the configuration.
-If no endpoint is specified, the name will be used as its value.</p>
+		<p>Initialize the provider with the given config</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (NSString *)endpoint</code></div>
+	<div class="method-subsection method-declaration"><code>- (instancetype)initWithConfig:(AGPassphraseCryptoConfig *)<em>config</em></code></div>
 
     
 	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>config</em></dt>
+			<dd><p>An <a href="../Classes/AGPassphraseCryptoConfig.html">AGPassphraseCryptoConfig</a> configuration object.</p></dd>
+		</dl>
+		
+	</div>
 	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the newly created AGPassphraseEncryptionServices object.</p>
+	</div>
 	
 	
 	
@@ -179,8 +190,7 @@ If no endpoint is specified, the name will be used as its value.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The endpoint to the configuration.
-If no endpoint is specified, the name will be used as its value.</p>
+		<p>Initialize the provider with the given config</p>
 	</div>
 	
 	
@@ -191,7 +201,7 @@ If no endpoint is specified, the name will be used as its value.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">AGPipeConfig.h</code><br />
+		<code class="declared-in-ref">AGPassphraseEncryptionServices.h</code><br />
 	</div>				
 	
 	

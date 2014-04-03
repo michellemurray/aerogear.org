@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>AGPipeConfiguration Class Reference</title>
+		<title>AGUtil Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -11,12 +11,12 @@
 	<body>
 		<header id="top_header">
 			<div id="library" class="hideInXcode">
-				<h1><a id="libraryTitle" href="../index.html">AeroGear-iOS </a></h1>
+				<h1><a id="libraryTitle" href="../index.html">AeroGear-Crypto </a></h1>
 				<a id="developerHome" href="../index.html">Red Hat</a>
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">AGPipeConfiguration Class Reference</h1>
+				<h1 class="hideInXcode">AGUtil Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -39,11 +39,15 @@
 	
 	
 	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/hexString:">&nbsp;&nbsp;&nbsp;&nbsp;+ hexString:</option>
+	
+	<option value="//api/name/hexStringToBytes:">&nbsp;&nbsp;&nbsp;&nbsp;+ hexStringToBytes:</option>
+	
+	<option value="//api/name/prependZeros:msg:">&nbsp;&nbsp;&nbsp;&nbsp;+ prependZeros:msg:</option>
 	
 	
-	<option value="instance_methods">Instance Methods</option>
-	
-	<option value="//api/name/endpoint">&nbsp;&nbsp;&nbsp;&nbsp;- endpoint</option>
 	
 	
 	
@@ -69,20 +73,24 @@
 
 
 
-
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/endpoint">endpoint</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hexString:">hexString:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hexStringToBytes:">hexStringToBytes:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prependZeros:msg:">prependZeros:msg:</a></span></li>
 	
 </ul></li>
+
+
 
 
 			</ul>
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="AGPipeConfiguration Class Reference" name="top"></a>
+				<a title="AGUtil Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -91,7 +99,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">AGPipeConfiguration Class Reference</h1>
+						<h1 class="title title-header">AGUtil Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -101,11 +109,8 @@
 	<td class="specification-title">Inherits from</td>
 	<td class="specification-value">NSObject</td>
 </tr><tr>
-	<td class="specification-title">Conforms to</td>
-	<td class="specification-value"><a href="../Protocols/AGPipeConfig.html">AGPipeConfig</a></td>
-</tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">AGPipeConfiguration.h<br />AGPipeConfiguration.m</td>
+	<td class="specification-value">AGUtil.h<br />AGUtil.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -115,7 +120,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The internal implementation of the <a href="../Protocols/AGPipeConfig.html">AGPipeConfig</a> to configure <a href="../Protocols/AGPipe.html">AGPipe</a> objects.</p>
+						<p>Utility class for cryptographic operations</p>
 					</div>
 					
 					
@@ -133,7 +138,19 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/endpoint">&ndash;&nbsp;endpoint</a></code>
+		<code><a href="#//api/name/prependZeros:msg:">+&nbsp;prependZeros:msg:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hexString:">+&nbsp;hexString:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hexStringToBytes:">+&nbsp;hexStringToBytes:</a></code>
 	</span>
 	
 	
@@ -148,30 +165,42 @@
 					
 					
 					
-					
-					
 					<div class="section section-methods">
-						<a title="Instance Methods" name="instance_methods"></a>
-						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/endpoint" title="endpoint"></a>
-	<h3 class="subsubtitle method-title">endpoint</h3>
+	<a name="//api/name/hexString:" title="hexString:"></a>
+	<h3 class="subsubtitle method-title">hexString:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The endpoint to the configuration.
-If no endpoint is specified, the name will be used as its value.</p>
+		<p>Convert the provided data to hex.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (NSString *)endpoint</code></div>
+	<div class="method-subsection method-declaration"><code>+ (NSString *)hexString:(NSData *)<em>data</em></code></div>
 
     
 	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>data</em></dt>
+			<dd><p>The NSData to be converted to hex representation.</p></dd>
+		</dl>
+		
+	</div>
 	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An NSString object with the result of the conversion.</p>
+	</div>
 	
 	
 	
@@ -179,8 +208,7 @@ If no endpoint is specified, the name will be used as its value.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The endpoint to the configuration.
-If no endpoint is specified, the name will be used as its value.</p>
+		<p>Convert the provided data to hex.</p>
 	</div>
 	
 	
@@ -191,13 +219,132 @@ If no endpoint is specified, the name will be used as its value.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">AGPipeConfig.h</code><br />
+		<code class="declared-in-ref">AGUtil.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/hexStringToBytes:" title="hexStringToBytes:"></a>
+	<h3 class="subsubtitle method-title">hexStringToBytes:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Convert the provided hex string to bytes.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSData *)hexStringToBytes:(NSString *)<em>data</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>data</em></dt>
+			<dd><p>The hex string to be converted.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An NSData object with the result of the conversion.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Convert the provided hex string to bytes.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AGUtil.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/prependZeros:msg:" title="prependZeros:msg:"></a>
+	<h3 class="subsubtitle method-title">prependZeros:msg:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Append zeros to the message provided.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSMutableData *)prependZeros:(NSUInteger)<em>n</em> msg:(NSData *)<em>message</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>n</em></dt>
+			<dd><p>Number of zeros.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>message</em></dt>
+			<dd><p>The provided message.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An NSData object that holds the result.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Append zeros to the message provided.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AGUtil.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 					</div>
+					
+					
 					
 					
                     

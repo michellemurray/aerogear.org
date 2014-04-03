@@ -43,11 +43,13 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/decrypt:IV:">&nbsp;&nbsp;&nbsp;&nbsp;- decrypt:IV:</option>
+	<option value="//api/name/decrypt:nonce:error:">&nbsp;&nbsp;&nbsp;&nbsp;- decrypt:nonce:error:</option>
 	
-	<option value="//api/name/encrypt:IV:">&nbsp;&nbsp;&nbsp;&nbsp;- encrypt:IV:</option>
+	<option value="//api/name/encrypt:nonce:error:">&nbsp;&nbsp;&nbsp;&nbsp;- encrypt:nonce:error:</option>
 	
-	<option value="//api/name/initWithKey:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithKey:</option>
+	<option value="//api/name/initWithKey:privateKey:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithKey:privateKey:</option>
+	
+	<option value="//api/name/initWithKeyPair:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithKeyPair:</option>
 	
 	
 	
@@ -77,11 +79,13 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/decrypt:IV:">decrypt:IV:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/decrypt:nonce:error:">decrypt:nonce:error:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/encrypt:IV:">encrypt:IV:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/encrypt:nonce:error:">encrypt:nonce:error:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithKey:">initWithKey:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithKey:privateKey:">initWithKey:privateKey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithKeyPair:">initWithKeyPair:</a></span></li>
 	
 </ul></li>
 
@@ -120,8 +124,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Main class for performing encrypt/decrypt operations. Currently it only supports symmetric
-key encryption but asymmetric support is currently in the works.</p>
+						<p>Provide public key authenticated encryption via curve25519xsalsa20poly1305</p>
 					</div>
 					
 					
@@ -139,19 +142,25 @@ key encryption but asymmetric support is currently in the works.</p>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithKey:">&ndash;&nbsp;initWithKey:</a></code>
+		<code><a href="#//api/name/initWithKeyPair:">&ndash;&nbsp;initWithKeyPair:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/encrypt:IV:">&ndash;&nbsp;encrypt:IV:</a></code>
+		<code><a href="#//api/name/initWithKey:privateKey:">&ndash;&nbsp;initWithKey:privateKey:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/decrypt:IV:">&ndash;&nbsp;decrypt:IV:</a></code>
+		<code><a href="#//api/name/encrypt:nonce:error:">&ndash;&nbsp;encrypt:nonce:error:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/decrypt:nonce:error:">&ndash;&nbsp;decrypt:nonce:error:</a></code>
 	</span>
 	
 	
@@ -173,18 +182,18 @@ key encryption but asymmetric support is currently in the works.</p>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/decrypt:IV:" title="decrypt:IV:"></a>
-	<h3 class="subsubtitle method-title">decrypt:IV:</h3>
+	<a name="//api/name/decrypt:nonce:error:" title="decrypt:nonce:error:"></a>
+	<h3 class="subsubtitle method-title">decrypt:nonce:error:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Decrypts the data object(cipher) passed in.</p>
+		<p>Decrypts the data object provided given a nonce.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (NSData *)decrypt:(NSData *)<em>data</em> IV:(NSData *)<em>IV</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (NSData *)decrypt:(NSData *)<em>data</em> nonce:(NSData *)<em>nonce</em> error:(NSError *__autoreleasing *)<em>error</em></code></div>
 
     
 	
@@ -197,8 +206,13 @@ key encryption but asymmetric support is currently in the works.</p>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>IV</em></dt>
-			<dd><p>A randomly choosen value used as the initialization vector during decrypt.</p></dd>
+			<dt><em>nonce</em></dt>
+			<dd><p>The cryptographically secure pseudorandom number.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>If an error occurs, upon return contains an <code>NSError</code> object that describes the problem.</p></dd>
 		</dl>
 		
 	</div>
@@ -216,7 +230,7 @@ key encryption but asymmetric support is currently in the works.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Decrypts the data object(cipher) passed in.</p>
+		<p>Decrypts the data object provided given a nonce.</p>
 	</div>
 	
 	
@@ -234,18 +248,18 @@ key encryption but asymmetric support is currently in the works.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/encrypt:IV:" title="encrypt:IV:"></a>
-	<h3 class="subsubtitle method-title">encrypt:IV:</h3>
+	<a name="//api/name/encrypt:nonce:error:" title="encrypt:nonce:error:"></a>
+	<h3 class="subsubtitle method-title">encrypt:nonce:error:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Encrypts the data object passed in.</p>
+		<p>Encrypts and authenticates the data object provided given a nonce.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (NSData *)encrypt:(NSData *)<em>data</em> IV:(NSData *)<em>IV</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (NSData *)encrypt:(NSData *)<em>data</em> nonce:(NSData *)<em>nonce</em> error:(NSError *__autoreleasing *)<em>error</em></code></div>
 
     
 	
@@ -258,8 +272,13 @@ key encryption but asymmetric support is currently in the works.</p>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>IV</em></dt>
-			<dd><p>A randomly choosen value used as the initialization vector during encrypt.</p></dd>
+			<dt><em>nonce</em></dt>
+			<dd><p>the cryptographically secure pseudorandom number.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>If an error occurs, upon return contains an <code>NSError</code> object that describes the problem.</p></dd>
 		</dl>
 		
 	</div>
@@ -277,7 +296,7 @@ key encryption but asymmetric support is currently in the works.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Encrypts the data object passed in.</p>
+		<p>Encrypts and authenticates the data object provided given a nonce.</p>
 	</div>
 	
 	
@@ -295,18 +314,18 @@ key encryption but asymmetric support is currently in the works.</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithKey:" title="initWithKey:"></a>
-	<h3 class="subsubtitle method-title">initWithKey:</h3>
+	<a name="//api/name/initWithKey:privateKey:" title="initWithKey:privateKey:"></a>
+	<h3 class="subsubtitle method-title">initWithKey:privateKey:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Default initializer.</p>
+		<p>Crypto box initialization</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (id)initWithKey:(NSData *)<em>key</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithKey:(NSData *)<em>publicKey</em> privateKey:(NSData *)<em>privateKey</em></code></div>
 
     
 	
@@ -314,8 +333,13 @@ key encryption but asymmetric support is currently in the works.</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>key</em></dt>
-			<dd><p>The encryption key to use for the encryption/decryption.</p></dd>
+			<dt><em>publicKey</em></dt>
+			<dd><p>the public encryption key provided.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>privateKey</em></dt>
+			<dd><p>the private encryption key provided.</p></dd>
 		</dl>
 		
 	</div>
@@ -333,7 +357,63 @@ key encryption but asymmetric support is currently in the works.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Default initializer.</p>
+		<p>Crypto box initialization</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">AGCryptoBox.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithKeyPair:" title="initWithKeyPair:"></a>
+	<h3 class="subsubtitle method-title">initWithKeyPair:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Crypto box default initialization</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithKeyPair:(AGKeyPair *)<em>keyPair</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>keyPair</em></dt>
+			<dd><p>containig public and private keys provided.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the AGCryptoBox object.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Crypto box default initialization</p>
 	</div>
 	
 	
@@ -365,7 +445,7 @@ key encryption but asymmetric support is currently in the works.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Red Hat. All rights reserved. (Last updated: 2013-11-19)</span><br />
+						<p><span class="copyright">&copy; 2014 Red Hat. All rights reserved. (Last updated: 2014-03-31)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						
